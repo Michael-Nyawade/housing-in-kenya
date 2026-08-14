@@ -1,6 +1,8 @@
 data:
   raw: data/raw
   processed: data/processed
+  raw_filename: housing_in_kenya_data.csv
+  processed_filename: cleaned_housing.csv
 
 model:
   random_state: 42
