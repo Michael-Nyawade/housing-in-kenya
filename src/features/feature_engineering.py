@@ -57,3 +57,10 @@ def split_data(df: pd.DataFrame, config: dict):
     test_features = pd.get_dummies(test_df, columns=["Estate"], drop_first=True)
 
     return train_features, test_features
+
+
+def split_X_y(df: pd.DataFrame, target_col: str = "Price_Ksh"):
+    """Split a dataframe into features (X) and target (y)."""
+    X = df.drop(columns=[target_col])
+    y = df[target_col]
+    return X, y

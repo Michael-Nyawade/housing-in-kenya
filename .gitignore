@@ -42,3 +42,6 @@ reports/figures/*
 # Operating system files
 .DS_Store
 Thumbs.db
+
+# Generated model run log
+reports/model_runs.csv
