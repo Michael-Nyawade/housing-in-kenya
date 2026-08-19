@@ -18,7 +18,7 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
 
     df = df.drop(columns=["link", "Agency", "sq_mtrs"])
 
-    df["Estate"] = df["Neighborhood"].str.split(",").apply(lambda parts: parts[-1])
+    df["Estate"] = df["Neighborhood"].str.split(",").apply(lambda parts: parts[-1].strip())
     df = df.drop(columns=["Neighborhood"])
 
     df["Price"] = (

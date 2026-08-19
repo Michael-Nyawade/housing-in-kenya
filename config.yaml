@@ -4,5 +4,9 @@ data:
   raw_filename: housing_in_kenya_data.csv
   processed_filename: cleaned_housing.csv
 
+features:
+  rare_estate_threshold: 10
+
 model:
   random_state: 42
+  test_size: 0.2
