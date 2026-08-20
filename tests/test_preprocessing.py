@@ -3,7 +3,7 @@
 import pandas as pd
 
 from src.data.preprocess import clean_data
-from src.features.feature_engineering import bucket_rare_estates, split_X_y
+from src.features.feature_engineering import bucket_rare_estates, split_data, split_X_y
 
 
 def _raw_row(price="KSh 100,000", neighborhood="Kilimani, Dagoretti North", **overrides):
@@ -85,3 +85,22 @@ def test_split_X_y_removes_target_from_features():
     X, y = split_X_y(df)
     assert "Price_Ksh" not in X.columns
     assert list(y) == [100.0, 200.0]
+
+
+def test_split_data_produces_matching_columns():
+    df = pd.DataFrame({
+        "Price_Ksh": [100000.0] * 30,
+        "Bedrooms": [2] * 30,
+        "Bathrooms": [1] * 30,
+        "Estate": ["A"] * 10 + ["B"] * 10 + ["C"] * 10,
+    })
+    config = {
+        "features": {"rare_estate_threshold": 5},
+        "model": {"random_state": 42, "test_size": 0.3},
+    }
+
+
+    train, test = split_data(df, config)
+
+    assert set(train.columns) == set(test.columns)
+    assert len(train) + len(test) == len(df)
