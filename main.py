@@ -12,7 +12,7 @@ Usage:
 import argparse
 
 from src.data.load_data import load_config, load_raw_data
-from src.data.preprocess import clean_data, save_processed_data
+from src.data.preprocess import clean_data, describe_data, save_processed_data
 from src.features.feature_engineering import split_data, split_X_y
 from src.models.evaluate import evaluate_model
 from src.models.train import save_model, train_model
@@ -30,10 +30,15 @@ def run_clean(config):
     clean = clean_data(raw)
     save_processed_data(clean, config)
     print(f"Cleaned data: {clean.shape[0]} rows, {clean.shape[1]} columns")
+    print()
+    print("Descriptive statistics:")
+    print(describe_data(clean))
     return clean
 
 
 def run_visualize(config, clean):
+    print()
+    print("Generating EDA charts...")
     plot_price_distribution(clean, "reports/figures/price_distribution.png")
     plot_price_by_estate(clean, "reports/figures/price_by_estate.png")
     plot_price_by_bedrooms_bathrooms(clean, "reports/figures/price_by_bedrooms_bathrooms.png")
@@ -41,6 +46,8 @@ def run_visualize(config, clean):
 
 
 def run_features(config, clean):
+    print()
+    print("Building features and splitting data...")
     train_df, test_df = split_data(clean, config)
     X_train, y_train = split_X_y(train_df)
     X_test, y_test = split_X_y(test_df)
@@ -49,6 +56,8 @@ def run_features(config, clean):
 
 
 def run_train(config, X_train, y_train):
+    print()
+    print("Training models...")
     models = {}
     for model_name in MODEL_NAMES:
         model = train_model(model_name, X_train, y_train, config)
@@ -59,6 +68,8 @@ def run_train(config, X_train, y_train):
 
 
 def run_evaluate(config, X_test, y_test):
+    print()
+    print("Evaluating models...")
     for model_name in MODEL_NAMES:
         metrics = evaluate_model(model_name, X_test, y_test, config)
         print(f"{model_name}: {metrics}")

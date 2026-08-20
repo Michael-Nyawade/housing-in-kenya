@@ -33,6 +33,9 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
 
     return df
 
+def describe_data(df: pd.DataFrame):
+    """Return descriptive statistics for the cleaned dataframe's numeric columns."""
+    return df.describe()
 
 def save_processed_data(df: pd.DataFrame, config: dict) -> None:
     """Save the cleaned dataframe to the processed data directory."""
