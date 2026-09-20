@@ -2,6 +2,8 @@
 
 Exploring the relationship between property size, location, and rental price in the Kenyan housing market, and predicting price from a small set of listing features.
 
+**Live app:** [housing-in-kenya.streamlit.app](https://housing-in-kenya.streamlit.app/)
+
 ## Table of Contents
 
 - [Project Overview](#project-overview)
@@ -11,6 +13,7 @@ Exploring the relationship between property size, location, and rental price in 
 - [Setup](#setup)
 - [Configuration](#configuration)
 - [Running the Pipeline](#running-the-pipeline)
+- [Web App](#web-app)
 - [Data Preparation](#data-preparation)
 - [Exploratory Data Analysis](#exploratory-data-analysis)
 - [Modeling](#modeling)
@@ -20,42 +23,48 @@ Exploring the relationship between property size, location, and rental price in 
 
 ## Project Overview
 
-The Kenyan housing market is shaped by numerous factors, among which size and location stand out. This project explores those dynamics through exploratory data analysis and predicts listing price (`Price_Ksh`) from `Bedrooms`, `Bathrooms`, and `Estate`.
+The Kenyan housing market is shaped by numerous factors, among which size and location stand out. This project explores those dynamics through exploratory data analysis and predicts listing price (`Price_Ksh`) from `Bedrooms`, `Bathrooms`, and `Estate`. A [live web app](https://housing-in-kenya.streamlit.app/) makes the predictor interactive.
 
 ## Problem Statement
 
 Investors, homeowners, and policymakers need to understand how property size and location relate to price in order to navigate the Kenyan housing market. This project addresses that through EDA and a baseline predictive model.
 
-**Note on terminology:** the dataset's `Price` values (roughly KSh 12,000–240,000) are consistent with *monthly rental prices*, not property sale prices, despite "housing prices" language used in the original data source.
+**Note on terminology:** the dataset's `Price` values (roughly KSh 12,000 - 240,000) are consistent with *monthly rental prices*, not property sale prices, despite "housing prices" language used in the original data source.
 
 ## Data Source
 
 Sourced from [Kaggle: Rental Apartments in Kenya](https://www.kaggle.com/datasets/iamasteriix/rental-apartments-in-kenya), CSV format. Original columns: `Agency`, `Neighborhood`, `Price`, `link`, `sq_mtrs`, `Bedrooms`, `Bathrooms`.
 
-The raw dataset is not committed to this repository (see [Data Preparation](#data-preparation)). To reproduce this project:
+The raw dataset is not committed to this repository (see [Data Preparation](#data-preparation)). To reproduce the pipeline:
 
 1. Download `housing_in_kenya_data.csv` from the Kaggle link above.
 2. Place it at `data/raw/housing_in_kenya_data.csv`.
+
+(The web app doesn't need this - see [Web App](#web-app).)
 
 ## Project Structure
 
 ```bash
 .
-├── config.yaml         # paths, feature/model/output settings
+├── app/
+│ ├── streamlit_app.py                 # web app entry point
+│ └── data/
+│      └── estate_price_summary.csv    # precomputed chart data (tracked)
+├── config.yaml                        # paths, feature/model/output settings
 ├── data/
-│ ├── raw/              # place housing_in_kenya_data.csv here (gitignored)
-│ └── processed/        # cleaned data written here by the pipeline (gitignored)
-├── main.py             # pipeline entry point
-├── models/             # trained model artifacts (gitignored)
-├── notebooks/          # exploratory notebooks
+│ ├── raw/                             # place housing_in_kenya_data.csv here (gitignored)
+│ └── processed/                       # cleaned data written here by the pipeline (gitignored)
+├── main.py                            # pipeline entry point
+├── models/                            # trained model artifacts (gitignored)
+├── notebooks/                         # exploratory notebooks
 ├── reports/
-│ ├── figures/          # generated EDA charts (gitignored)
-│ └── model_runs.csv    # log of every training run's metrics (gitignored)
+│ ├── figures/                         # generated EDA charts (gitignored)
+│ └── model_runs.csv                   # log of every training run's metrics (gitignored)
 ├── src/
-│ ├── data/             # loading + cleaning
-│ ├── features/         # estate bucketing, encoding, train/test split
-│ ├── models/           # train, evaluate, predict
-│ └── visualization/    # EDA chart functions
+│ ├── data/                            # loading + cleaning
+│ ├── features/                        # estate bucketing, encoding, train/test split
+│ ├── models/                          # train, evaluate, predict
+│ └── visualization/                   # EDA chart functions
 ├── tests/
 └── requirements.txt
 ```
@@ -70,7 +79,7 @@ source venv/bin/activate   # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-Then place the raw dataset as described in [Data Source](#data-source).
+Then place the raw dataset as described in [Data Source](#data-source) if you intend to run the pipeline. This isn't needed to run the web app locally.
 
 ## Configuration
 
@@ -97,14 +106,30 @@ python main.py --stage evaluate    # ...then evaluate both models and log result
 
 Each stage builds on the previous one internally, so e.g. `--stage evaluate` still runs cleaning and feature preparation first.
 
+## Web App
+
+A [Streamlit app](https://housing-in-kenya.streamlit.app/) wraps the primary model in an interactive predictor:
+
+- Enter bedrooms, bathrooms, and estate to get a predicted monthly rental price.
+- A chart of average price by estate, sorted highest to lowest, for context.
+- States the model's R² (~0.47) alongside every prediction, so the estimate isn't presented as more certain than it is.
+
+Run it locally:
+
+```bash
+streamlit run app/streamlit_app.py
+```
+
+This only needs `models/linear_regression.pkl` and `app/data/estate_price_summary.csv` (both tracked in the repo, see [Project Structure](#project-structure)) - no raw dataset or retraining required.
+
 ## Data Preparation
 
 `src/data/preprocess.py` performs the following cleaning steps:
 
-1. Drop rows with any missing values (evaluated on the full raw schema, before `sq_mtrs` is dropped).
+1. Drop rows with any missing values.
 2. Drop unused columns: `link`, `Agency`, `sq_mtrs`.
 3. Derive `Estate` from `Neighborhood` (last comma-separated token, whitespace stripped).
-4. Parse `Price` (e.g. `"KSh 100,000"` → `100000.0`) and rename to `Price_Ksh`.
+4. Parse `Price` (e.g. `"KSh 100,000"` -> `100000.0`) and rename to `Price_Ksh`.
 5. Cast `Bedrooms`/`Bathrooms` to integers.
 
 Result: 1,557 rows, 4 columns (`Price_Ksh`, `Bedrooms`, `Bathrooms`, `Estate`).
@@ -113,9 +138,9 @@ Result: 1,557 rows, 4 columns (`Price_Ksh`, `Bedrooms`, `Bathrooms`, `Estate`).
 
 Regenerate the charts with `python main.py --stage visualize`. They cover:
 
-- **Distribution of `Price_Ksh`, `Bedrooms`, and `Bathrooms`** — roughly half of listings are priced above KSh 100,000; half have 3+ bedrooms and 2+ bathrooms, indicating a market skewed toward larger, higher-priced units.
-- **Average price by estate** — substantial variation across the 37 estates present in the data. Westlands and Thika Road command the highest average prices; Kasarani and Kikuyu are among the more affordable.
-- **Average price by bedroom/bathroom count** — a generally positive relationship between room count and price, consistent with larger properties commanding higher prices.
+- **Distribution of `Price_Ksh`, `Bedrooms`, and `Bathrooms`** - roughly half of listings are priced above KSh 100,000; half have 3+ bedrooms and 2+ bathrooms, indicating a market skewed toward larger, higher-priced units.
+- **Average price by estate** - substantial variation across the 37 estates present in the data. Westlands and Thika Road command the highest average prices; Kasarani and Kikuyu are among the more affordable.
+- **Average price by bedroom/bathroom count** - a generally positive relationship between room count and price, consistent with larger properties commanding higher prices.
 
 ## Modeling
 
@@ -123,8 +148,8 @@ Regenerate the charts with `python main.py --stage visualize`. They cover:
 
 Two models are trained and compared on the same test set:
 
-- **Linear Regression** — baseline, interpretable coefficients.
-- **Random Forest** — non-linear alternative, `n_estimators` configurable via `config.yaml`.
+- **Linear Regression** - baseline, interpretable coefficients. `Athi River` is the dropped reference category (alphabetically first); every other `Estate_*` coefficient represents a price difference relative to Athi River.
+- **Random Forest** - non-linear alternative, `n_estimators` configurable via `config.yaml`.
 
 Every run's hyperparameters and metrics are appended to `reports/model_runs.csv`.
 
@@ -135,9 +160,9 @@ Every run's hyperparameters and metrics are appended to `reports/model_runs.csv`
 | Linear Regression | 29,556 | 23,442 | 0.4695 |
 | Random Forest | 29,568 | 23,660 | 0.4691 |
 
-The two models perform statistically indistinguishably. **Linear Regression is the project's designated primary model** (`config.yaml: output.primary_model`) — with equal accuracy, the simpler, more interpretable model is the better engineering choice; Random Forest's added complexity buys nothing here.
+The two models perform statistically indistinguishably. **Linear Regression is the project's designated primary model** (`config.yaml: output.primary_model`, and the model powering the [web app](#web-app)) - with equal accuracy, the simpler, more interpretable model is the better engineering choice; Random Forest's added complexity buys nothing here.
 
-An R² of ~0.47 means `Bedrooms`, `Bathrooms`, and `Estate` explain under half of the variance in price. This is an honest reflection of the feature set's limits, not a modeling error — see [Limitations](#limitations).
+An R² of ~0.47 means `Bedrooms`, `Bathrooms`, and `Estate` explain under half of the variance in price. This is an honest reflection of the feature set's limits, not a modeling error - see [Limitations](#limitations).
 
 ## Recommendations
 
@@ -149,4 +174,4 @@ An R² of ~0.47 means `Bedrooms`, `Bathrooms`, and `Estate` explain under half o
 
 - The dataset is a single Kaggle snapshot and may not represent the full diversity of the Kenyan rental market.
 - Only `Bedrooms`, `Bathrooms`, and `Estate` are modeled; other likely price drivers (exact amenities, building condition, agency, proximity to amenities) are not captured, which caps achievable model accuracy (R² ≈ 0.47).
-- `Estate` values with fewer than 10 listings are grouped into a single `Other` category, which limits location granularity for less common areas.
+- `Estate` values with fewer than 10 listings are grouped into a single `Other` category, which limits location granularity for less common areas.  
