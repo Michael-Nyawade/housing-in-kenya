@@ -2,7 +2,7 @@
 
 Exploring the relationship between property size, location, and rental price in the Kenyan housing market, and predicting price from a small set of listing features.
 
-**Live app:** [housing-in-kenya.streamlit.app](https://housing-in-kenya-lr.streamlit.app/)
+**Live app:** [housing-in-kenya-lr.streamlit.app](https://housing-in-kenya-lr.streamlit.app/)
 
 ## Table of Contents
 
