@@ -2,7 +2,7 @@
 
 Exploring the relationship between property size, location, and rental price in the Kenyan housing market, and predicting price from a small set of listing features.
 
-**Live app:** [housing-in-kenya.streamlit.app](https://housing-in-kenya.streamlit.app/)
+**Live app:** [housing-in-kenya.streamlit.app](https://housing-in-kenya-lr.streamlit.app/)
 
 ## Table of Contents
 
@@ -23,7 +23,7 @@ Exploring the relationship between property size, location, and rental price in 
 
 ## Project Overview
 
-The Kenyan housing market is shaped by numerous factors, among which size and location stand out. This project explores those dynamics through exploratory data analysis and predicts listing price (`Price_Ksh`) from `Bedrooms`, `Bathrooms`, and `Estate`. A [live web app](https://housing-in-kenya.streamlit.app/) makes the predictor interactive.
+The Kenyan housing market is shaped by numerous factors, among which size and location stand out. This project explores those dynamics through exploratory data analysis and predicts listing price (`Price_Ksh`) from `Bedrooms`, `Bathrooms`, and `Estate`. A [live web app](https://housing-in-kenya-lr.streamlit.app/) makes the predictor interactive.
 
 ## Problem Statement
 
@@ -108,7 +108,7 @@ Each stage builds on the previous one internally, so e.g. `--stage evaluate` sti
 
 ## Web App
 
-A [Streamlit app](https://housing-in-kenya.streamlit.app/) wraps the primary model in an interactive predictor:
+A [Streamlit app](https://housing-in-kenya-lr.streamlit.app/) wraps the primary model in an interactive predictor:
 
 - Enter bedrooms, bathrooms, and estate to get a predicted monthly rental price.
 - A chart of average price by estate, sorted highest to lowest, for context.
