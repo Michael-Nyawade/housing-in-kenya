@@ -1,0 +1,31 @@
+import { describe, expect, it } from "vitest";
+
+import { formatEstate, formatKsh } from "./format";
+
+describe("formatKsh", () => {
+  it("adds thousands separators", () => {
+    expect(formatKsh(111520.4)).toBe("KSh 111,520");
+  });
+
+  it("rounds to whole shillings", () => {
+    expect(formatKsh(1999.6)).toBe("KSh 2,000");
+  });
+
+  it("puts the minus sign before the currency", () => {
+    expect(formatKsh(-3649.2)).toBe("-KSh 3,649");
+  });
+
+  it("never prints negative zero", () => {
+    expect(formatKsh(-0.4)).toBe("KSh 0");
+  });
+});
+
+describe("formatEstate", () => {
+  it("shows the grouped estates as Other areas", () => {
+    expect(formatEstate("Other")).toBe("Other areas");
+  });
+
+  it("leaves named estates unchanged", () => {
+    expect(formatEstate("Westlands")).toBe("Westlands");
+  });
+});
