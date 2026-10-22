@@ -1,0 +1,447 @@
+{
+  "dataset": {
+    "rows_raw": 1848,
+    "rows_clean": 1557,
+    "rows_removed": 291,
+    "estates": 37,
+    "rare_estate_threshold": 10
+  },
+  "price_summary": {
+    "min": 12000.0,
+    "p25": 70000.0,
+    "median": 95000.0,
+    "mean": 98339.75,
+    "p75": 130000.0,
+    "max": 240000.0
+  },
+  "price_distribution": [
+    {
+      "from": 0,
+      "to": 20000,
+      "listings": 23
+    },
+    {
+      "from": 20000,
+      "to": 40000,
+      "listings": 85
+    },
+    {
+      "from": 40000,
+      "to": 60000,
+      "listings": 150
+    },
+    {
+      "from": 60000,
+      "to": 80000,
+      "listings": 254
+    },
+    {
+      "from": 80000,
+      "to": 100000,
+      "listings": 292
+    },
+    {
+      "from": 100000,
+      "to": 120000,
+      "listings": 213
+    },
+    {
+      "from": 120000,
+      "to": 140000,
+      "listings": 226
+    },
+    {
+      "from": 140000,
+      "to": 160000,
+      "listings": 169
+    },
+    {
+      "from": 160000,
+      "to": 180000,
+      "listings": 127
+    },
+    {
+      "from": 180000,
+      "to": 200000,
+      "listings": 14
+    },
+    {
+      "from": 200000,
+      "to": 220000,
+      "listings": 2
+    },
+    {
+      "from": 220000,
+      "to": 240000,
+      "listings": 2
+    }
+  ],
+  "by_estate": [
+    {
+      "estate": "Thika Road",
+      "listings": 5,
+      "mean_price": 118600.0,
+      "median_price": 145000.0
+    },
+    {
+      "estate": "Westlands",
+      "listings": 547,
+      "mean_price": 118068.54,
+      "median_price": 120000.0
+    },
+    {
+      "estate": "Muthaiga",
+      "listings": 3,
+      "mean_price": 101666.67,
+      "median_price": 85000.0
+    },
+    {
+      "estate": "Dagoretti North",
+      "listings": 715,
+      "mean_price": 101524.48,
+      "median_price": 95000.0
+    },
+    {
+      "estate": "Milimani",
+      "listings": 4,
+      "mean_price": 90000.0,
+      "median_price": 95000.0
+    },
+    {
+      "estate": "Mombasa CBD",
+      "listings": 3,
+      "mean_price": 85000.0,
+      "median_price": 80000.0
+    },
+    {
+      "estate": "Ruaraka",
+      "listings": 1,
+      "mean_price": 80000.0,
+      "median_price": 80000.0
+    },
+    {
+      "estate": "Langata",
+      "listings": 36,
+      "mean_price": 72444.44,
+      "median_price": 52500.0
+    },
+    {
+      "estate": "Mvita",
+      "listings": 1,
+      "mean_price": 70000.0,
+      "median_price": 70000.0
+    },
+    {
+      "estate": "Nyali",
+      "listings": 41,
+      "mean_price": 64414.63,
+      "median_price": 55000.0
+    },
+    {
+      "estate": "Kisauni",
+      "listings": 3,
+      "mean_price": 62000.0,
+      "median_price": 73000.0
+    },
+    {
+      "estate": "Roysambu",
+      "listings": 11,
+      "mean_price": 61431.82,
+      "median_price": 55000.0
+    },
+    {
+      "estate": "Ngong Road",
+      "listings": 17,
+      "mean_price": 61058.82,
+      "median_price": 60000.0
+    },
+    {
+      "estate": "Kiambu Road",
+      "listings": 37,
+      "mean_price": 59851.35,
+      "median_price": 55000.0
+    },
+    {
+      "estate": "Thindigua",
+      "listings": 9,
+      "mean_price": 55666.67,
+      "median_price": 55000.0
+    },
+    {
+      "estate": "Mombasa Road",
+      "listings": 4,
+      "mean_price": 49250.0,
+      "median_price": 37000.0
+    },
+    {
+      "estate": "Starehe",
+      "listings": 3,
+      "mean_price": 48000.0,
+      "median_price": 44000.0
+    },
+    {
+      "estate": "Kangundo",
+      "listings": 1,
+      "mean_price": 40000.0,
+      "median_price": 40000.0
+    },
+    {
+      "estate": "Kiambu Constituency",
+      "listings": 2,
+      "mean_price": 40000.0,
+      "median_price": 40000.0
+    },
+    {
+      "estate": "Makadara",
+      "listings": 1,
+      "mean_price": 40000.0,
+      "median_price": 40000.0
+    },
+    {
+      "estate": "Kajiado North",
+      "listings": 6,
+      "mean_price": 39333.33,
+      "median_price": 36500.0
+    },
+    {
+      "estate": "Ngong",
+      "listings": 2,
+      "mean_price": 38500.0,
+      "median_price": 38500.0
+    },
+    {
+      "estate": "Kabete",
+      "listings": 3,
+      "mean_price": 38333.33,
+      "median_price": 38000.0
+    },
+    {
+      "estate": "Kiambaa",
+      "listings": 60,
+      "mean_price": 37225.0,
+      "median_price": 38000.0
+    },
+    {
+      "estate": "Athi River",
+      "listings": 10,
+      "mean_price": 34400.0,
+      "median_price": 35000.0
+    },
+    {
+      "estate": "Eldoret North",
+      "listings": 1,
+      "mean_price": 33500.0,
+      "median_price": 33500.0
+    },
+    {
+      "estate": "Embakasi",
+      "listings": 7,
+      "mean_price": 33428.57,
+      "median_price": 35000.0
+    },
+    {
+      "estate": "Dagoretti South",
+      "listings": 7,
+      "mean_price": 32642.86,
+      "median_price": 25000.0
+    },
+    {
+      "estate": "Kilifi South",
+      "listings": 1,
+      "mean_price": 30000.0,
+      "median_price": 30000.0
+    },
+    {
+      "estate": "Kiambu Town",
+      "listings": 1,
+      "mean_price": 30000.0,
+      "median_price": 30000.0
+    },
+    {
+      "estate": "Thika East",
+      "listings": 1,
+      "mean_price": 30000.0,
+      "median_price": 30000.0
+    },
+    {
+      "estate": "Kisumu West",
+      "listings": 1,
+      "mean_price": 30000.0,
+      "median_price": 30000.0
+    },
+    {
+      "estate": "Ruiru",
+      "listings": 3,
+      "mean_price": 26916.67,
+      "median_price": 25000.0
+    },
+    {
+      "estate": "Thika",
+      "listings": 1,
+      "mean_price": 25000.0,
+      "median_price": 25000.0
+    },
+    {
+      "estate": "Kikuyu",
+      "listings": 5,
+      "mean_price": 22200.0,
+      "median_price": 22000.0
+    },
+    {
+      "estate": "Kisumu Central",
+      "listings": 2,
+      "mean_price": 21500.0,
+      "median_price": 21500.0
+    },
+    {
+      "estate": "Kasarani",
+      "listings": 2,
+      "mean_price": 16000.0,
+      "median_price": 16000.0
+    }
+  ],
+  "by_estate_group": [
+    {
+      "estate": "Westlands",
+      "listings": 547,
+      "mean_price": 118068.54,
+      "median_price": 120000.0
+    },
+    {
+      "estate": "Dagoretti North",
+      "listings": 715,
+      "mean_price": 101524.48,
+      "median_price": 95000.0
+    },
+    {
+      "estate": "Langata",
+      "listings": 36,
+      "mean_price": 72444.44,
+      "median_price": 52500.0
+    },
+    {
+      "estate": "Nyali",
+      "listings": 41,
+      "mean_price": 64414.63,
+      "median_price": 55000.0
+    },
+    {
+      "estate": "Roysambu",
+      "listings": 11,
+      "mean_price": 61431.82,
+      "median_price": 55000.0
+    },
+    {
+      "estate": "Ngong Road",
+      "listings": 17,
+      "mean_price": 61058.82,
+      "median_price": 60000.0
+    },
+    {
+      "estate": "Kiambu Road",
+      "listings": 37,
+      "mean_price": 59851.35,
+      "median_price": 55000.0
+    },
+    {
+      "estate": "Other",
+      "listings": 83,
+      "mean_price": 50442.77,
+      "median_price": 40000.0
+    },
+    {
+      "estate": "Kiambaa",
+      "listings": 60,
+      "mean_price": 37225.0,
+      "median_price": 38000.0
+    },
+    {
+      "estate": "Athi River",
+      "listings": 10,
+      "mean_price": 34400.0,
+      "median_price": 35000.0
+    }
+  ],
+  "by_bedrooms": [
+    {
+      "bedrooms": 0,
+      "listings": 5,
+      "mean_price": 38600.0,
+      "median_price": 50000.0
+    },
+    {
+      "bedrooms": 1,
+      "listings": 146,
+      "mean_price": 78527.4,
+      "median_price": 85000.0
+    },
+    {
+      "bedrooms": 2,
+      "listings": 474,
+      "mean_price": 85061.69,
+      "median_price": 76500.0
+    },
+    {
+      "bedrooms": 3,
+      "listings": 783,
+      "mean_price": 104541.51,
+      "median_price": 100000.0
+    },
+    {
+      "bedrooms": 4,
+      "listings": 145,
+      "mean_price": 128977.59,
+      "median_price": 135000.0
+    },
+    {
+      "bedrooms": 5,
+      "listings": 3,
+      "mean_price": 156666.67,
+      "median_price": 170000.0
+    },
+    {
+      "bedrooms": 6,
+      "listings": 1,
+      "mean_price": 110000.0,
+      "median_price": 110000.0
+    }
+  ],
+  "by_bathrooms": [
+    {
+      "bathrooms": 1,
+      "listings": 176,
+      "mean_price": 68289.75,
+      "median_price": 60000.0
+    },
+    {
+      "bathrooms": 2,
+      "listings": 633,
+      "mean_price": 86462.87,
+      "median_price": 80000.0
+    },
+    {
+      "bathrooms": 3,
+      "listings": 449,
+      "mean_price": 109877.51,
+      "median_price": 110000.0
+    },
+    {
+      "bathrooms": 4,
+      "listings": 247,
+      "mean_price": 122429.15,
+      "median_price": 125000.0
+    },
+    {
+      "bathrooms": 5,
+      "listings": 48,
+      "mean_price": 130208.33,
+      "median_price": 140000.0
+    },
+    {
+      "bathrooms": 6,
+      "listings": 4,
+      "mean_price": 135000.0,
+      "median_price": 135000.0
+    }
+  ]
+}

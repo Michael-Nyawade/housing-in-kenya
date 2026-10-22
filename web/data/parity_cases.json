@@ -1,0 +1,722 @@
+[
+  {
+    "estate": "Athi River",
+    "bedrooms": 0,
+    "bathrooms": 1,
+    "predicted_price": 7161.770529321904
+  },
+  {
+    "estate": "Athi River",
+    "bedrooms": 0,
+    "bathrooms": 2,
+    "predicted_price": 17972.59473689334
+  },
+  {
+    "estate": "Athi River",
+    "bedrooms": 0,
+    "bathrooms": 6,
+    "predicted_price": 61215.89156717909
+  },
+  {
+    "estate": "Athi River",
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "predicted_price": 17216.09722838649
+  },
+  {
+    "estate": "Athi River",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "predicted_price": 28026.921435957927
+  },
+  {
+    "estate": "Athi River",
+    "bedrooms": 2,
+    "bathrooms": 6,
+    "predicted_price": 71270.21826624367
+  },
+  {
+    "estate": "Athi River",
+    "bedrooms": 3,
+    "bathrooms": 1,
+    "predicted_price": 22243.26057791878
+  },
+  {
+    "estate": "Athi River",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "predicted_price": 33054.08478549022
+  },
+  {
+    "estate": "Athi River",
+    "bedrooms": 3,
+    "bathrooms": 6,
+    "predicted_price": 76297.38161577596
+  },
+  {
+    "estate": "Athi River",
+    "bedrooms": 6,
+    "bathrooms": 1,
+    "predicted_price": 37324.750626515655
+  },
+  {
+    "estate": "Athi River",
+    "bedrooms": 6,
+    "bathrooms": 2,
+    "predicted_price": 48135.57483408709
+  },
+  {
+    "estate": "Athi River",
+    "bedrooms": 6,
+    "bathrooms": 6,
+    "predicted_price": 91378.87166437284
+  },
+  {
+    "estate": "Dagoretti North",
+    "bedrooms": 0,
+    "bathrooms": 1,
+    "predicted_price": 69757.48378041649
+  },
+  {
+    "estate": "Dagoretti North",
+    "bedrooms": 0,
+    "bathrooms": 2,
+    "predicted_price": 80568.30798798792
+  },
+  {
+    "estate": "Dagoretti North",
+    "bedrooms": 0,
+    "bathrooms": 6,
+    "predicted_price": 123811.60481827367
+  },
+  {
+    "estate": "Dagoretti North",
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "predicted_price": 79811.81047948106
+  },
+  {
+    "estate": "Dagoretti North",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "predicted_price": 90622.6346870525
+  },
+  {
+    "estate": "Dagoretti North",
+    "bedrooms": 2,
+    "bathrooms": 6,
+    "predicted_price": 133865.93151733826
+  },
+  {
+    "estate": "Dagoretti North",
+    "bedrooms": 3,
+    "bathrooms": 1,
+    "predicted_price": 84838.97382901337
+  },
+  {
+    "estate": "Dagoretti North",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "predicted_price": 95649.7980365848
+  },
+  {
+    "estate": "Dagoretti North",
+    "bedrooms": 3,
+    "bathrooms": 6,
+    "predicted_price": 138893.09486687055
+  },
+  {
+    "estate": "Dagoretti North",
+    "bedrooms": 6,
+    "bathrooms": 1,
+    "predicted_price": 99920.46387761024
+  },
+  {
+    "estate": "Dagoretti North",
+    "bedrooms": 6,
+    "bathrooms": 2,
+    "predicted_price": 110731.28808518167
+  },
+  {
+    "estate": "Dagoretti North",
+    "bedrooms": 6,
+    "bathrooms": 6,
+    "predicted_price": 153974.58491546742
+  },
+  {
+    "estate": "Kiambaa",
+    "bedrooms": 0,
+    "bathrooms": 1,
+    "predicted_price": 17705.497862961092
+  },
+  {
+    "estate": "Kiambaa",
+    "bedrooms": 0,
+    "bathrooms": 2,
+    "predicted_price": 28516.32207053253
+  },
+  {
+    "estate": "Kiambaa",
+    "bedrooms": 0,
+    "bathrooms": 6,
+    "predicted_price": 71759.61890081828
+  },
+  {
+    "estate": "Kiambaa",
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "predicted_price": 27759.82456202568
+  },
+  {
+    "estate": "Kiambaa",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "predicted_price": 38570.648769597115
+  },
+  {
+    "estate": "Kiambaa",
+    "bedrooms": 2,
+    "bathrooms": 6,
+    "predicted_price": 81813.94559988286
+  },
+  {
+    "estate": "Kiambaa",
+    "bedrooms": 3,
+    "bathrooms": 1,
+    "predicted_price": 32786.98791155797
+  },
+  {
+    "estate": "Kiambaa",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "predicted_price": 43597.812119129405
+  },
+  {
+    "estate": "Kiambaa",
+    "bedrooms": 3,
+    "bathrooms": 6,
+    "predicted_price": 86841.10894941515
+  },
+  {
+    "estate": "Kiambaa",
+    "bedrooms": 6,
+    "bathrooms": 1,
+    "predicted_price": 47868.47796015484
+  },
+  {
+    "estate": "Kiambaa",
+    "bedrooms": 6,
+    "bathrooms": 2,
+    "predicted_price": 58679.30216772628
+  },
+  {
+    "estate": "Kiambaa",
+    "bedrooms": 6,
+    "bathrooms": 6,
+    "predicted_price": 101922.59899801204
+  },
+  {
+    "estate": "Kiambu Road",
+    "bedrooms": 0,
+    "bathrooms": 1,
+    "predicted_price": 33841.65972645083
+  },
+  {
+    "estate": "Kiambu Road",
+    "bedrooms": 0,
+    "bathrooms": 2,
+    "predicted_price": 44652.48393402227
+  },
+  {
+    "estate": "Kiambu Road",
+    "bedrooms": 0,
+    "bathrooms": 6,
+    "predicted_price": 87895.78076430802
+  },
+  {
+    "estate": "Kiambu Road",
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "predicted_price": 43895.98642551541
+  },
+  {
+    "estate": "Kiambu Road",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "predicted_price": 54706.81063308685
+  },
+  {
+    "estate": "Kiambu Road",
+    "bedrooms": 2,
+    "bathrooms": 6,
+    "predicted_price": 97950.1074633726
+  },
+  {
+    "estate": "Kiambu Road",
+    "bedrooms": 3,
+    "bathrooms": 1,
+    "predicted_price": 48923.1497750477
+  },
+  {
+    "estate": "Kiambu Road",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "predicted_price": 59733.973982619136
+  },
+  {
+    "estate": "Kiambu Road",
+    "bedrooms": 3,
+    "bathrooms": 6,
+    "predicted_price": 102977.27081290488
+  },
+  {
+    "estate": "Kiambu Road",
+    "bedrooms": 6,
+    "bathrooms": 1,
+    "predicted_price": 64004.63982364458
+  },
+  {
+    "estate": "Kiambu Road",
+    "bedrooms": 6,
+    "bathrooms": 2,
+    "predicted_price": 74815.46403121602
+  },
+  {
+    "estate": "Kiambu Road",
+    "bedrooms": 6,
+    "bathrooms": 6,
+    "predicted_price": 118058.76086150177
+  },
+  {
+    "estate": "Langata",
+    "bedrooms": 0,
+    "bathrooms": 1,
+    "predicted_price": 56650.18377083428
+  },
+  {
+    "estate": "Langata",
+    "bedrooms": 0,
+    "bathrooms": 2,
+    "predicted_price": 67461.00797840572
+  },
+  {
+    "estate": "Langata",
+    "bedrooms": 0,
+    "bathrooms": 6,
+    "predicted_price": 110704.30480869146
+  },
+  {
+    "estate": "Langata",
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "predicted_price": 66704.51046989886
+  },
+  {
+    "estate": "Langata",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "predicted_price": 77515.3346774703
+  },
+  {
+    "estate": "Langata",
+    "bedrooms": 2,
+    "bathrooms": 6,
+    "predicted_price": 120758.63150775604
+  },
+  {
+    "estate": "Langata",
+    "bedrooms": 3,
+    "bathrooms": 1,
+    "predicted_price": 71731.67381943116
+  },
+  {
+    "estate": "Langata",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "predicted_price": 82542.49802700258
+  },
+  {
+    "estate": "Langata",
+    "bedrooms": 3,
+    "bathrooms": 6,
+    "predicted_price": 125785.79485728833
+  },
+  {
+    "estate": "Langata",
+    "bedrooms": 6,
+    "bathrooms": 1,
+    "predicted_price": 86813.16386802803
+  },
+  {
+    "estate": "Langata",
+    "bedrooms": 6,
+    "bathrooms": 2,
+    "predicted_price": 97623.98807559947
+  },
+  {
+    "estate": "Langata",
+    "bedrooms": 6,
+    "bathrooms": 6,
+    "predicted_price": 140867.28490588523
+  },
+  {
+    "estate": "Ngong Road",
+    "bedrooms": 0,
+    "bathrooms": 1,
+    "predicted_price": 35287.269196154375
+  },
+  {
+    "estate": "Ngong Road",
+    "bedrooms": 0,
+    "bathrooms": 2,
+    "predicted_price": 46098.09340372581
+  },
+  {
+    "estate": "Ngong Road",
+    "bedrooms": 0,
+    "bathrooms": 6,
+    "predicted_price": 89341.39023401156
+  },
+  {
+    "estate": "Ngong Road",
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "predicted_price": 45341.59589521896
+  },
+  {
+    "estate": "Ngong Road",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "predicted_price": 56152.4201027904
+  },
+  {
+    "estate": "Ngong Road",
+    "bedrooms": 2,
+    "bathrooms": 6,
+    "predicted_price": 99395.71693307615
+  },
+  {
+    "estate": "Ngong Road",
+    "bedrooms": 3,
+    "bathrooms": 1,
+    "predicted_price": 50368.75924475126
+  },
+  {
+    "estate": "Ngong Road",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "predicted_price": 61179.583452322695
+  },
+  {
+    "estate": "Ngong Road",
+    "bedrooms": 3,
+    "bathrooms": 6,
+    "predicted_price": 104422.88028260844
+  },
+  {
+    "estate": "Ngong Road",
+    "bedrooms": 6,
+    "bathrooms": 1,
+    "predicted_price": 65450.249293348126
+  },
+  {
+    "estate": "Ngong Road",
+    "bedrooms": 6,
+    "bathrooms": 2,
+    "predicted_price": 76261.07350091956
+  },
+  {
+    "estate": "Ngong Road",
+    "bedrooms": 6,
+    "bathrooms": 6,
+    "predicted_price": 119504.37033120531
+  },
+  {
+    "estate": "Nyali",
+    "bedrooms": 0,
+    "bathrooms": 1,
+    "predicted_price": 32650.75446822049
+  },
+  {
+    "estate": "Nyali",
+    "bedrooms": 0,
+    "bathrooms": 2,
+    "predicted_price": 43461.57867579193
+  },
+  {
+    "estate": "Nyali",
+    "bedrooms": 0,
+    "bathrooms": 6,
+    "predicted_price": 86704.87550607767
+  },
+  {
+    "estate": "Nyali",
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "predicted_price": 42705.081167285076
+  },
+  {
+    "estate": "Nyali",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "predicted_price": 53515.90537485651
+  },
+  {
+    "estate": "Nyali",
+    "bedrooms": 2,
+    "bathrooms": 6,
+    "predicted_price": 96759.20220514225
+  },
+  {
+    "estate": "Nyali",
+    "bedrooms": 3,
+    "bathrooms": 1,
+    "predicted_price": 47732.244516817365
+  },
+  {
+    "estate": "Nyali",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "predicted_price": 58543.0687243888
+  },
+  {
+    "estate": "Nyali",
+    "bedrooms": 3,
+    "bathrooms": 6,
+    "predicted_price": 101786.36555467456
+  },
+  {
+    "estate": "Nyali",
+    "bedrooms": 6,
+    "bathrooms": 1,
+    "predicted_price": 62813.73456541424
+  },
+  {
+    "estate": "Nyali",
+    "bedrooms": 6,
+    "bathrooms": 2,
+    "predicted_price": 73624.55877298568
+  },
+  {
+    "estate": "Nyali",
+    "bedrooms": 6,
+    "bathrooms": 6,
+    "predicted_price": 116867.85560327143
+  },
+  {
+    "estate": "Other",
+    "bedrooms": 0,
+    "bathrooms": 1,
+    "predicted_price": 25965.57371597921
+  },
+  {
+    "estate": "Other",
+    "bedrooms": 0,
+    "bathrooms": 2,
+    "predicted_price": 36776.39792355065
+  },
+  {
+    "estate": "Other",
+    "bedrooms": 0,
+    "bathrooms": 6,
+    "predicted_price": 80019.6947538364
+  },
+  {
+    "estate": "Other",
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "predicted_price": 36019.9004150438
+  },
+  {
+    "estate": "Other",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "predicted_price": 46830.724622615235
+  },
+  {
+    "estate": "Other",
+    "bedrooms": 2,
+    "bathrooms": 6,
+    "predicted_price": 90074.02145290098
+  },
+  {
+    "estate": "Other",
+    "bedrooms": 3,
+    "bathrooms": 1,
+    "predicted_price": 41047.06376457609
+  },
+  {
+    "estate": "Other",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "predicted_price": 51857.887972147524
+  },
+  {
+    "estate": "Other",
+    "bedrooms": 3,
+    "bathrooms": 6,
+    "predicted_price": 95101.18480243327
+  },
+  {
+    "estate": "Other",
+    "bedrooms": 6,
+    "bathrooms": 1,
+    "predicted_price": 56128.55381317296
+  },
+  {
+    "estate": "Other",
+    "bedrooms": 6,
+    "bathrooms": 2,
+    "predicted_price": 66939.37802074439
+  },
+  {
+    "estate": "Other",
+    "bedrooms": 6,
+    "bathrooms": 6,
+    "predicted_price": 110182.67485103014
+  },
+  {
+    "estate": "Roysambu",
+    "bedrooms": 0,
+    "bathrooms": 1,
+    "predicted_price": 34109.98194839012
+  },
+  {
+    "estate": "Roysambu",
+    "bedrooms": 0,
+    "bathrooms": 2,
+    "predicted_price": 44920.80615596156
+  },
+  {
+    "estate": "Roysambu",
+    "bedrooms": 0,
+    "bathrooms": 6,
+    "predicted_price": 88164.10298624731
+  },
+  {
+    "estate": "Roysambu",
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "predicted_price": 44164.30864745471
+  },
+  {
+    "estate": "Roysambu",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "predicted_price": 54975.132855026146
+  },
+  {
+    "estate": "Roysambu",
+    "bedrooms": 2,
+    "bathrooms": 6,
+    "predicted_price": 98218.42968531189
+  },
+  {
+    "estate": "Roysambu",
+    "bedrooms": 3,
+    "bathrooms": 1,
+    "predicted_price": 49191.471996987
+  },
+  {
+    "estate": "Roysambu",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "predicted_price": 60002.296204558435
+  },
+  {
+    "estate": "Roysambu",
+    "bedrooms": 3,
+    "bathrooms": 6,
+    "predicted_price": 103245.59303484418
+  },
+  {
+    "estate": "Roysambu",
+    "bedrooms": 6,
+    "bathrooms": 1,
+    "predicted_price": 64272.962045583874
+  },
+  {
+    "estate": "Roysambu",
+    "bedrooms": 6,
+    "bathrooms": 2,
+    "predicted_price": 75083.78625315531
+  },
+  {
+    "estate": "Roysambu",
+    "bedrooms": 6,
+    "bathrooms": 6,
+    "predicted_price": 118327.08308344106
+  },
+  {
+    "estate": "Westlands",
+    "bedrooms": 0,
+    "bathrooms": 1,
+    "predicted_price": 85627.18910149694
+  },
+  {
+    "estate": "Westlands",
+    "bedrooms": 0,
+    "bathrooms": 2,
+    "predicted_price": 96438.01330906838
+  },
+  {
+    "estate": "Westlands",
+    "bedrooms": 0,
+    "bathrooms": 6,
+    "predicted_price": 139681.31013935414
+  },
+  {
+    "estate": "Westlands",
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "predicted_price": 95681.51580056152
+  },
+  {
+    "estate": "Westlands",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "predicted_price": 106492.34000813297
+  },
+  {
+    "estate": "Westlands",
+    "bedrooms": 2,
+    "bathrooms": 6,
+    "predicted_price": 149735.63683841872
+  },
+  {
+    "estate": "Westlands",
+    "bedrooms": 3,
+    "bathrooms": 1,
+    "predicted_price": 100708.67915009381
+  },
+  {
+    "estate": "Westlands",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "predicted_price": 111519.50335766526
+  },
+  {
+    "estate": "Westlands",
+    "bedrooms": 3,
+    "bathrooms": 6,
+    "predicted_price": 154762.800187951
+  },
+  {
+    "estate": "Westlands",
+    "bedrooms": 6,
+    "bathrooms": 1,
+    "predicted_price": 115790.1691986907
+  },
+  {
+    "estate": "Westlands",
+    "bedrooms": 6,
+    "bathrooms": 2,
+    "predicted_price": 126600.99340626213
+  },
+  {
+    "estate": "Westlands",
+    "bedrooms": 6,
+    "bathrooms": 6,
+    "predicted_price": 169844.29023654788
+  }
+]

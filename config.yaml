@@ -19,3 +19,4 @@ output:
   models_dir: models
   run_log: reports/model_runs.csv
   primary_model: linear_regression
+  web_data_dir: web/data
