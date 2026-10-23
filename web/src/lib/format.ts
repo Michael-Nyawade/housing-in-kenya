@@ -16,3 +16,8 @@ export function formatKsh(value: number): string {
 export function formatEstate(estate: string): string {
   return estate === "Other" ? "Other areas" : estate;
 }
+
+/** Rounds to the nearest multiple of step, e.g. roundToNearest(23442, 100) is 23400. */
+export function roundToNearest(value: number, step: number): number {
+  return Math.round(value / step) * step;
+}

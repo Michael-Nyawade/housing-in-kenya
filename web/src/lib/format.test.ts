@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { formatEstate, formatKsh } from "./format";
+import { formatEstate, formatKsh, roundToNearest } from "./format";
 
 describe("formatKsh", () => {
   it("adds thousands separators", () => {
@@ -27,5 +27,15 @@ describe("formatEstate", () => {
 
   it("leaves named estates unchanged", () => {
     expect(formatEstate("Westlands")).toBe("Westlands");
+  });
+});
+
+describe("roundToNearest", () => {
+  it("rounds down to the nearest step", () => {
+    expect(roundToNearest(23442, 100)).toBe(23400);
+  });
+
+  it("rounds halves up", () => {
+    expect(roundToNearest(23450, 100)).toBe(23500);
   });
 });
