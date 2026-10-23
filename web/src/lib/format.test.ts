@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { formatEstate, formatKsh, roundToNearest } from "./format";
+import { formatEstate, formatKsh, formatThousands, roundToNearest } from "./format";
 
 describe("formatKsh", () => {
   it("adds thousands separators", () => {
@@ -17,6 +17,17 @@ describe("formatKsh", () => {
 
   it("never prints negative zero", () => {
     expect(formatKsh(-0.4)).toBe("KSh 0");
+  });
+});
+
+describe("formatThousands", () => {
+  it("rounds to whole thousands", () => {
+    expect(formatThousands(104541.5)).toBe("105k");
+    expect(formatThousands(38600)).toBe("39k");
+  });
+
+  it("prints plain zero for tiny values", () => {
+    expect(formatThousands(0)).toBe("0");
   });
 });
 

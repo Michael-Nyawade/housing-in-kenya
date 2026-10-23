@@ -11,6 +11,27 @@
   --color-accent-tint: #e4f0eb;
   --color-ochre: #c8832b;
   --color-bar-muted: #cfc8ba;
+
+  --animate-grow-x: grow-x 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-grow-y: grow-y 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+
+  @keyframes grow-x {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  @keyframes grow-y {
+    from {
+      transform: scaleY(0);
+    }
+    to {
+      transform: scaleY(1);
+    }
+  }
 }
 
 @theme inline {

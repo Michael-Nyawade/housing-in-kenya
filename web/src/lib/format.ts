@@ -12,6 +12,12 @@ export function formatKsh(value: number): string {
   return rounded < 0 ? `-KSh ${formatNumber(-rounded)}` : `KSh ${formatNumber(rounded)}`;
 }
 
+/** Whole thousands for tight spaces, e.g. "105k". */
+export function formatThousands(value: number): string {
+  const thousands = Math.round(value / 1000);
+  return thousands === 0 ? "0" : `${formatNumber(thousands)}k`;
+}
+
 /** The model groups rarely listed estates under "Other"; show that as "Other areas". */
 export function formatEstate(estate: string): string {
   return estate === "Other" ? "Other areas" : estate;
