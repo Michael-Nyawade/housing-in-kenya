@@ -1,6 +1,12 @@
 import { describe, expect, it } from "vitest";
 
-import { formatEstate, formatKsh, formatThousands, roundToNearest } from "./format";
+import {
+  formatEstate,
+  formatKsh,
+  formatSignedKsh,
+  formatThousands,
+  roundToNearest,
+} from "./format";
 
 describe("formatKsh", () => {
   it("adds thousands separators", () => {
@@ -17,6 +23,21 @@ describe("formatKsh", () => {
 
   it("never prints negative zero", () => {
     expect(formatKsh(-0.4)).toBe("KSh 0");
+  });
+});
+
+describe("formatSignedKsh", () => {
+  it("adds a plus sign to gains", () => {
+    expect(formatSignedKsh(62595.7)).toBe("+KSh 62,596");
+  });
+
+  it("keeps the minus sign for losses", () => {
+    expect(formatSignedKsh(-3649.05)).toBe("-KSh 3,649");
+  });
+
+  it("leaves zero unsigned", () => {
+    expect(formatSignedKsh(0)).toBe("KSh 0");
+    expect(formatSignedKsh(0.4)).toBe("KSh 0");
   });
 });
 
