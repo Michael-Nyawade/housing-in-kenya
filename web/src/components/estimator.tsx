@@ -1,12 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 import { EstateSelect } from "@/components/estate-select";
+import { EstimateBar } from "@/components/estimate-bar";
 import { NumberStepper } from "@/components/number-stepper";
 import { PriceDistribution } from "@/components/price-distribution";
 import { useAnimatedNumber } from "@/hooks/use-animated-number";
+import { useInView } from "@/hooks/use-in-view";
 import { describeEstimate, sortEstatesForDisplay } from "@/lib/estimate";
 import { formatEstate, formatKsh, formatNumber, roundToNearest } from "@/lib/format";
 import { insights } from "@/lib/insights";
@@ -21,6 +23,11 @@ export function Estimator() {
   const [bathrooms, setBathrooms] = useState(2);
   const [estate, setEstate] = useState(defaultEstate);
 
+  const inputsRef = useRef<HTMLDivElement>(null);
+  const resultRef = useRef<HTMLDivElement>(null);
+  const inputsInView = useInView(inputsRef);
+  const resultInView = useInView(resultRef);
+
   const input = { bedrooms, bathrooms, estate };
   const estimate = predictPrice(model, input);
   const context = describeEstimate(input, estimate, insights);
@@ -28,7 +35,7 @@ export function Estimator() {
 
   return (
     <section className="mx-auto grid max-w-6xl gap-6 px-5 pb-20 sm:px-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-start">
-      <div className="rounded-2xl border border-line bg-card p-6 sm:p-8">
+      <div ref={inputsRef} className="rounded-2xl border border-line bg-card p-6 sm:p-8">
         <h2 className="font-serif text-2xl font-semibold">Describe the home</h2>
         <div className="mt-6 space-y-6">
           <EstateSelect
@@ -54,7 +61,11 @@ export function Estimator() {
         </div>
       </div>
 
-      <div className="rounded-2xl border border-line bg-card p-6 sm:p-8">
+      <div
+        id="result"
+        ref={resultRef}
+        className="scroll-mt-24 rounded-2xl border border-line bg-card p-6 sm:p-8"
+      >
         <p className="text-sm font-semibold uppercase tracking-[0.14em] text-accent">
           Estimated monthly rent
         </p>
@@ -117,6 +128,12 @@ export function Estimator() {
           </Link>
         </p>
       </div>
+
+      <EstimateBar
+        visible={inputsInView && !resultInView}
+        animatedEstimate={animatedEstimate}
+        estimate={estimate}
+      />
     </section>
   );
 }

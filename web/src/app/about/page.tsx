@@ -180,7 +180,7 @@ export default function AboutPage() {
             {`Typical error is the average size of the miss across the test listings. The larger-misses figure measures the same thing but counts a big miss for more than a small one, so it can never be lower. The gap between the two, about ${formatKsh(roundToNearest(chosen.rmse - chosen.mae, 100))}, shows the misses are uneven: some are much larger than the typical one.`}
           </p>
           <p className="max-w-3xl leading-relaxed text-muted">
-            {`Typical error is an average, not a limit: individual listings can miss by far more. The model explains ${shareWording} the differences in rent because rent also depends on things this data does not record, such as finishes, building quality, the exact street, amenities, and negotiation.`}
+            {`The model explains ${shareWording} the differences in rent because rent also depends on things this data does not record, such as finishes, building quality, the exact street, amenities, and negotiation.`}
           </p>
         </div>
       </InsightSection>

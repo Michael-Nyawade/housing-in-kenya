@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const links = [
   { href: "/", label: "Predict" },
@@ -26,76 +26,122 @@ function Mark() {
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+
+  // Escape closes the menu and returns focus to the button that opened it.
+  useEffect(() => {
+    if (!open) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [open]);
+
+  // Stop the page behind the open menu from scrolling.
+  useEffect(() => {
+    if (!open) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previous;
+    };
+  }, [open]);
+
+  // Close the menu if the window widens to the desktop layout.
+  useEffect(() => {
+    const query = window.matchMedia("(min-width: 768px)");
+    const onChange = (event: MediaQueryListEvent) => {
+      if (event.matches) setOpen(false);
+    };
+    query.addEventListener("change", onChange);
+    return () => query.removeEventListener("change", onChange);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-paper/85 backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8">
-        <Link href="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
-          <Mark />
-          <span className="font-serif text-lg font-semibold tracking-tight">Housing in Kenya</span>
-        </Link>
+    <>
+      <header className="sticky top-0 z-40 border-b border-line bg-paper/85 backdrop-blur">
+        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:px-8">
+          <Link href="/" className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
+            <Mark />
+            <span className="font-serif text-lg font-semibold tracking-tight">Housing in Kenya</span>
+          </Link>
 
-        <nav aria-label="Main" className="hidden h-full items-center gap-1 md:flex">
-          {links.map((link) => {
-            const active = isActive(pathname, link.href);
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                aria-current={active ? "page" : undefined}
-                className={`relative flex h-full items-center px-3 text-sm font-medium transition-colors ${
-                  active ? "text-ink" : "text-muted hover:text-ink"
-                }`}
-              >
-                {link.label}
-                {active && <span className="absolute inset-x-3 bottom-0 h-0.5 bg-accent" />}
-              </Link>
-            );
-          })}
-        </nav>
+          <nav aria-label="Main" className="hidden h-full items-center gap-1 md:flex">
+            {links.map((link) => {
+              const active = isActive(pathname, link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-current={active ? "page" : undefined}
+                  className={`relative flex h-full items-center px-3 text-sm font-medium transition-colors ${
+                    active ? "text-ink" : "text-muted hover:text-ink"
+                  }`}
+                >
+                  {link.label}
+                  {active && <span className="absolute inset-x-3 bottom-0 h-0.5 bg-accent" />}
+                </Link>
+              );
+            })}
+          </nav>
 
-        <button
-          type="button"
-          className="-mr-2 inline-flex h-10 w-10 items-center justify-center rounded-lg text-ink transition-colors hover:bg-accent-tint md:hidden"
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-          aria-label={open ? "Close menu" : "Open menu"}
-          onClick={() => setOpen((value) => !value)}
-        >
-          <svg
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-            className="h-6 w-6"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
+          <button
+            ref={menuButtonRef}
+            type="button"
+            className="-mr-2 inline-flex h-10 w-10 items-center justify-center rounded-lg text-ink transition-colors hover:bg-accent-tint md:hidden"
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            aria-label={open ? "Close menu" : "Open menu"}
+            onClick={() => setOpen((value) => !value)}
           >
-            {open ? <path d="M6 6l12 12M18 6 6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
-          </svg>
-        </button>
-      </div>
+            <svg
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              className="h-6 w-6"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+            >
+              {open ? <path d="M6 6l12 12M18 6 6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
+            </svg>
+          </button>
+        </div>
 
+        {open && (
+          <nav id="mobile-nav" aria-label="Mobile" className="border-t border-line bg-paper px-3 py-3 md:hidden">
+            {links.map((link) => {
+              const active = isActive(pathname, link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-current={active ? "page" : undefined}
+                  onClick={() => setOpen(false)}
+                  className={`block rounded-lg px-3 py-3 text-base font-medium ${
+                    active ? "bg-accent-tint text-accent-strong" : "text-ink hover:bg-accent-tint"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+          </nav>
+        )}
+      </header>
+
+      {/* Outside the header on purpose: the header's blur would otherwise trap a fixed child. */}
       {open && (
-        <nav id="mobile-nav" aria-label="Mobile" className="border-t border-line bg-paper px-3 py-3 md:hidden">
-          {links.map((link) => {
-            const active = isActive(pathname, link.href);
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                aria-current={active ? "page" : undefined}
-                onClick={() => setOpen(false)}
-                className={`block rounded-lg px-3 py-3 text-base font-medium ${
-                  active ? "bg-accent-tint text-accent-strong" : "text-ink hover:bg-accent-tint"
-                }`}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
-        </nav>
+        <div
+          aria-hidden="true"
+          onClick={() => setOpen(false)}
+          className="fixed inset-x-0 bottom-0 top-16 z-30 animate-fade-in bg-ink/30 md:hidden"
+        />
       )}
-    </header>
+    </>
   );
 }
