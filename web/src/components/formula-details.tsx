@@ -1,5 +1,5 @@
 import type { EstateEffect } from "@/lib/breakdown";
-import { formatEstate } from "@/lib/format";
+import { formatEstate, formatNumber } from "@/lib/format";
 import type { ModelData } from "@/lib/predict";
 
 const preciseFormat = new Intl.NumberFormat("en-KE", {
@@ -53,6 +53,30 @@ export function FormulaDetails({ data, effects }: FormulaDetailsProps) {
           adjustment
         </p>
 
+        <dl className="mt-6 space-y-4 text-sm leading-relaxed">
+          <div>
+            <dt className="font-semibold">Starting amount</dt>
+            <dd className="text-muted">
+              What the formula gives for a home with no bedrooms and no bathrooms in the comparison
+              estate. It is a mathematical anchor, not a real rent.
+            </dd>
+          </div>
+          <div>
+            <dt className="font-semibold">Per bedroom and per bathroom</dt>
+            <dd className="text-muted">
+              Flat amounts, multiplied by the number of each. They are the same in every estate.
+            </dd>
+          </div>
+          <div>
+            <dt className="font-semibold">Estate adjustment</dt>
+            <dd className="text-muted">
+              One figure looked up for the chosen estate, the same flat amount whatever the size of
+              the home. It is zero for the comparison estate, so only one estate adjustment ever
+              applies at a time.
+            </dd>
+          </div>
+        </dl>
+
         <div className="mt-6 overflow-x-auto">
           <table className="w-full min-w-[20rem] text-left text-sm">
             <caption className="sr-only">Every number the model uses, in Kenyan shillings</caption>
@@ -80,7 +104,7 @@ export function FormulaDetails({ data, effects }: FormulaDetailsProps) {
         </div>
 
         <p className="mt-6 text-sm text-muted">
-          {`Trained on ${data.training.rows_train} listings and tested on ${data.training.rows_test}, using scikit-learn ${data.training.sklearn_version} with random state ${data.training.random_state}.`}
+          {`Trained on ${formatNumber(data.training.rows_train)} listings and tested on ${formatNumber(data.training.rows_test)}, using scikit-learn ${data.training.sklearn_version} with random state ${data.training.random_state}.`}
         </p>
       </div>
     </details>
