@@ -66,6 +66,7 @@ export function Estimator() {
         ref={resultRef}
         className="scroll-mt-24 rounded-2xl border border-line bg-card p-6 sm:p-8"
       >
+        <h2 className="sr-only">Your estimate</h2>
         <p className="text-sm font-semibold uppercase tracking-[0.14em] text-accent">
           Estimated monthly rent
         </p>

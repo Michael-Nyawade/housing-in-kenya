@@ -12,7 +12,11 @@ import type { ChartItem } from "@/lib/charts";
 import { formatKsh, formatNumber, formatThousands } from "@/lib/format";
 import { insights } from "@/lib/insights";
 
-export const metadata: Metadata = { title: "Market insights" };
+export const metadata: Metadata = {
+  title: "Market insights",
+  description:
+    "Where rents run high or low across estates, and what extra bedrooms and bathrooms tend to add, based on real rental listings.",
+};
 
 const { dataset, price_summary: summary } = insights;
 

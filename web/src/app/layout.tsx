@@ -3,8 +3,7 @@ import { Fraunces, Geist } from "next/font/google";
 
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { formatNumber } from "@/lib/format";
-import { insights } from "@/lib/insights";
+import { siteDescription, siteName, siteUrl } from "@/lib/site";
 
 import "./globals.css";
 
@@ -12,10 +11,21 @@ const sans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const serif = Fraunces({ variable: "--font-fraunces", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: { default: "Housing in Kenya", template: "%s | Housing in Kenya" },
-  description: `Estimate monthly rent for Kenyan estates and explore what drives rental prices, based on ${formatNumber(
-    insights.dataset.rows_clean,
-  )} real listings.`,
+  metadataBase: new URL(siteUrl),
+  title: { default: siteName, template: `%s | ${siteName}` },
+  description: siteDescription,
+  openGraph: {
+    type: "website",
+    siteName,
+    title: siteName,
+    description: siteDescription,
+    locale: "en_KE",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteName,
+    description: siteDescription,
+  },
 };
 
 export const viewport: Viewport = {

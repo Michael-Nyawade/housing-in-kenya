@@ -20,7 +20,10 @@ import {
 import { insights } from "@/lib/insights";
 import { model } from "@/lib/predict";
 
-export const metadata: Metadata = { title: "About the model" };
+export const metadata: Metadata = {
+  title: "About the model",
+  description: "How the rent estimates are made, how accurate they are, and where they fall short.",
+};
 
 const { dataset } = insights;
 const chosen = model.metrics[model.model_name];
