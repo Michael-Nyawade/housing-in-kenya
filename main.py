@@ -3,10 +3,11 @@
 Usage:
     python main.py                     # run the full pipeline
     python main.py --stage clean       # just load + clean the data
-    python main.py --stage features    # clean, then build features + split
-    python main.py --stage train       # clean, features, then train both models
-    python main.py --stage evaluate    # clean, features, train, then evaluate both
     python main.py --stage visualize   # clean, then regenerate the 3 EDA charts
+    python main.py --stage features    # clean, then build features + split
+    python main.py --stage train       # ...then train both models
+    python main.py --stage evaluate    # ...then evaluate both models
+    python main.py --stage export      # ...train, then write the website's data files
 """
 
 import argparse
@@ -15,6 +16,7 @@ from src.data.load_data import load_config, load_raw_data
 from src.data.preprocess import clean_data, describe_data, save_processed_data
 from src.features.feature_engineering import split_data, split_X_y
 from src.models.evaluate import evaluate_model
+from src.models.export import export_web_data
 from src.models.train import save_model, train_model
 from src.visualization.plots import (
     plot_price_by_bedrooms_bathrooms,
@@ -58,13 +60,10 @@ def run_features(config, clean):
 def run_train(config, X_train, y_train):
     print()
     print("Training models...")
-    models = {}
     for model_name in MODEL_NAMES:
         model = train_model(model_name, X_train, y_train, config)
         save_model(model, model_name, config)
-        models[model_name] = model
         print(f"Trained and saved {model_name}")
-    return models
 
 
 def run_evaluate(config, X_test, y_test):
@@ -75,39 +74,48 @@ def run_evaluate(config, X_test, y_test):
         print(f"{model_name}: {metrics}")
 
 
+def run_export(config, clean, X_test, y_test):
+    print()
+    print("Exporting website data...")
+    rows_raw = len(load_raw_data(config))
+    for path in export_web_data(config, clean, X_test, y_test, rows_raw, MODEL_NAMES):
+        print(f"Wrote {path}")
+
+
 def main():
     parser = argparse.ArgumentParser(description="Housing-in-Kenya pipeline")
     parser.add_argument(
         "--stage",
-        choices=["clean", "visualize", "features", "train", "evaluate", "all"],
+        choices=["clean", "visualize", "features", "train", "evaluate", "export", "all"],
         default="all",
         help="Which pipeline stage to run (default: all)",
     )
-    args = parser.parse_args()
+    stage = parser.parse_args().stage
 
     config = load_config()
     clean = run_clean(config)
-
-    if args.stage == "clean":
+    if stage == "clean":
         return
 
-    if args.stage in ("visualize", "all"):
+    if stage in ("visualize", "all"):
         run_visualize(config, clean)
-        if args.stage == "visualize":
+        if stage == "visualize":
             return
 
-    if args.stage in ("features", "train", "evaluate", "all"):
-        X_train, y_train, X_test, y_test = run_features(config, clean)
-        if args.stage == "features":
-            return
+    X_train, y_train, X_test, y_test = run_features(config, clean)
+    if stage == "features":
+        return
 
-    if args.stage in ("train", "evaluate", "all"):
-        run_train(config, X_train, y_train)
-        if args.stage == "train":
-            return
+    run_train(config, X_train, y_train)
+    if stage == "train":
+        return
 
-    if args.stage in ("evaluate", "all"):
+    if stage in ("evaluate", "all"):
         run_evaluate(config, X_test, y_test)
+        if stage == "evaluate":
+            return
+
+    run_export(config, clean, X_test, y_test)
 
 
 if __name__ == "__main__":

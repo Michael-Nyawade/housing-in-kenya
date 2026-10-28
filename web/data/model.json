@@ -1,0 +1,62 @@
+{
+  "model_name": "linear_regression",
+  "target": "Price_Ksh",
+  "intercept": -3649.053678249533,
+  "coefficients": {
+    "Bedrooms": 5027.163349532292,
+    "Bathrooms": 10810.824207571437,
+    "Estate_Dagoretti North": 62595.71325109458,
+    "Estate_Kiambaa": 10543.727333639188,
+    "Estate_Kiambu Road": 26679.889197128923,
+    "Estate_Langata": 49488.413241512375,
+    "Estate_Ngong Road": 28125.498666832475,
+    "Estate_Nyali": 25488.983938898582,
+    "Estate_Other": 18803.803186657307,
+    "Estate_Roysambu": 26948.21141906822,
+    "Estate_Westlands": 78465.41857217504
+  },
+  "estates": [
+    "Athi River",
+    "Dagoretti North",
+    "Kiambaa",
+    "Kiambu Road",
+    "Langata",
+    "Ngong Road",
+    "Nyali",
+    "Other",
+    "Roysambu",
+    "Westlands"
+  ],
+  "baseline_estate": "Athi River",
+  "input_ranges": {
+    "bedrooms": {
+      "min": 0,
+      "max": 6
+    },
+    "bathrooms": {
+      "min": 1,
+      "max": 6
+    }
+  },
+  "metrics": {
+    "linear_regression": {
+      "rmse": 29556.45848944588,
+      "mae": 23442.09180194894,
+      "r2": 0.4694968509426295
+    },
+    "random_forest": {
+      "rmse": 29568.132726325683,
+      "mae": 23659.609283822752,
+      "r2": 0.4690776909453983
+    }
+  },
+  "training": {
+    "rows_clean": 1557,
+    "rows_train": 1245,
+    "rows_test": 312,
+    "test_size": 0.2,
+    "random_state": 42,
+    "rare_estate_threshold": 10,
+    "sklearn_version": "1.9.0"
+  }
+}
