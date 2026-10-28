@@ -36,16 +36,18 @@ export default function OpengraphImage() {
           <div
             style={{
               display: "flex",
-              fontSize: 88,
+              flexDirection: "column",
+              fontSize: 96,
               fontWeight: 700,
               lineHeight: 1.05,
               letterSpacing: "-0.02em",
               maxWidth: 980,
             }}
           >
-            What should a rental cost?
+            <div style={{ display: "flex" }}>What should a</div>
+            <div style={{ display: "flex" }}>rental cost?</div>
           </div>
-          <div style={{ display: "flex", fontSize: 34, color: "#5e6a64", maxWidth: 920 }}>
+          <div style={{ display: "flex", fontSize: 32, color: "#5e6a64", maxWidth: 1000 }}>
             Estimate monthly rent by estate, bedrooms, and bathrooms.
           </div>
         </div>
