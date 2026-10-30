@@ -29,9 +29,6 @@ models/*
 # Keep the models directory structure
 !models/.gitkeep
 
-# Track the primary model for deployment
-!models/linear_regression.pkl
-
 # Generated figures and visualizations
 reports/figures/*
 
